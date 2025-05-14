@@ -5,24 +5,49 @@ export const EventContext = createContext()
 const EventProvider = ({children}) => {
 
     const [events, setEvents] = useState([])
+    const [selectedEvent, setSelectedEvent] = useState(null)
   
+    const fetchEvents =  async () => {
+    try {
+         
+        const res = await fetch('')
 
-    useEffect(() => {
-        const fetchData =  async () => {
-
-        const res = await fetch('www.rl.se/haha')
         if(res.ok) {
         const data = await res.json()
          setEvents(data)
         }
+    }  
+   
+     catch(error) {
+        console.error("Something went wrong:", error)
+     }
+  }
+     const fetchEventsById = async (id) => {
 
+        try {
+            const res = await fetch('/${id}')
+
+            if(res.ok) {
+            const data = res.json()
+            setSelectedEvent(data)
+            }
+            else {
+                console.error("Could not find event:", id)
+            }
+
+        }
+        catch(error){
+            console.error("Something went wrong:", error)
+        }
      }
 
-        fetchData()
+useEffect(() => {
+
+        fetchEvents()
     }, [])
 
  return (
-    <EventContext.Provider value= {{events}}>
+    <EventContext.Provider value= {{events, selectedEvent, fetchEvents, fetchEventsById}}>
         {children}
     </EventContext.Provider>
  )

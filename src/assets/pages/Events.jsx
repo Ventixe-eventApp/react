@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { EventContext } from '../contexts/EventContext'
+import EventCard from '../components/EventCard'
 
 const Events = () => {
+const {events, fetchEvents} = useContext(EventContext)
+
+useEffect(() => {
+
+  fetchEvents()
+}, [])
+
+if(!events || events.lenght === 0) return <p>No events to show</p>
+
   return (
-    <div>Events</div>
+    <div className='event-list'>
+      {/* {events.map((event) => (
+        <EventCard key={event.id} event={event} />
+      ))} */}
+
+    </div>
   )
 }
 
