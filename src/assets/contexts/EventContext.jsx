@@ -10,14 +10,13 @@ const EventProvider = ({children}) => {
     const fetchEvents =  async () => {
     try {
          
-        const res = await fetch('')
+        const res = await fetch('https://localhost:7020/api/event/')
 
         if(res.ok) {
         const data = await res.json()
          setEvents(data)
         }
     }  
-   
      catch(error) {
         console.error("Something went wrong:", error)
      }
@@ -25,7 +24,7 @@ const EventProvider = ({children}) => {
      const fetchEventsById = async (id) => {
 
         try {
-            const res = await fetch('/${id}')
+            const res = await fetch(`https://localhost:7020/api/event/${id}`)
 
             if(res.ok) {
             const data = res.json()

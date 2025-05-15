@@ -2,6 +2,10 @@ import React from 'react'
 
 export const AdminLayout = () => {
   return (
-    <div>AdminLayout</div>
+      <div className='center-screen'>
+       <main>
+        <Outlet/>
+        </main>
+        </div>
   )
 }

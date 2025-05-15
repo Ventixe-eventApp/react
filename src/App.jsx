@@ -2,6 +2,7 @@
 import { Route, Routes } from 'react-router-dom'
 
 import './App.css'
+
 import Events from './assets/pages/Events'
 import Home from './assets/pages/Home'
 import EventProvider from './assets/contexts/EventContext'
@@ -12,6 +13,7 @@ import AdminEventForm from './assets/components/AdminEventForm'
 import AuthLayout from './assets/layouts/AuthLayout'
 import LoginForm from './assets/components/LoginForm'
 import RegisterForm from './assets/components/RegisterForm'
+import PortalLayout from './assets/layouts/PortalLayout'
 
 function App() {
 
@@ -19,11 +21,12 @@ function App() {
   return (
     <EventProvider>
       <Routes>
-        <Route path='/auth' element={<AuthLayout/>}>
+        <Route path='/auth' element={<CenterLayout/>}>
           <Route path='login' element={<LoginForm/>}/>
           <Route path='register' element={<RegisterForm/>}/>
         </Route>
-        <Route element={<CenterLayout />}>
+      
+        <Route element={< PortalLayout/>}>
           <Route path='/events' element={<Events/>}/>
           <Route path='/events/:id' element={<EventDetails/>}/>
         </Route>
