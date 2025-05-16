@@ -77,6 +77,7 @@
 
 --event-card-image-background:#E0E0E1;
 
+
 }
 
 html, body {
@@ -86,6 +87,12 @@ html, body {
     font-size: 16px;
     font-family: var(--font-standard);
     font-style: normal;
+}
+
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
 }
 
 
