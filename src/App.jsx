@@ -29,6 +29,7 @@ function App() {
         <Route element={< PortalLayout/>}>
           <Route path='/events' element={<Events/>}/>
           <Route path='/events/:id' element={<EventDetails/>}/>
+          <Route path='/home' element= {<Home/>}/>
         </Route>
         <Route path='/admin' element={<AdminLayout/>}>
           <Route path='addevent' element={<AdminEventForm/>}/>

@@ -1,5 +1,5 @@
 import React from 'react'
-import SideNav from '../components/SideNav'
+import Nav from '../components/Nav'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { Outlet } from 'react-router-dom'
@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom'
 const PortalLayout = () => {
   return (
     <div className='portal-wrapper'>
-      <SideNav/>
+      <Nav/>
       <Header/>
        <main>
         <Outlet/>
