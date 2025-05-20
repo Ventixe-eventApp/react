@@ -6,15 +6,17 @@ const Header = () => {
   const location = useLocation();
 
   const titles = {
+      
+      '/home': 'Dashboard',
       '/events': 'Events',
-      '/home': 'Home',
-      '/dashboard': 'Dashboard',
+      '/event/' : 'Event Details',
+      
   }
 
   const putPath = Object.keys(titles).find(path => location.pathname.startsWith(path))
 
 
-  const title = titles[putPath] || 'test'
+  const title = titles[putPath] || ''
   return (
     < header className='header-title'>{title}</header>
   )

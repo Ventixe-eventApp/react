@@ -27,7 +27,7 @@ const EventProvider = ({children}) => {
             const res = await fetch(`https://localhost:7020/api/event/${id}`)
 
             if(res.ok) {
-            const data = res.json()
+            const data = await res.json()
             setSelectedEvent(data)
             }
             else {

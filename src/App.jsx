@@ -22,14 +22,15 @@ function App() {
     <EventProvider>
       <Routes>
         <Route path='/auth' element={<CenterLayout/>}>
-          <Route path='login' element={<LoginForm/>}/>
-          <Route path='register' element={<RegisterForm/>}/>
+          <Route path='/login' element={<LoginForm/>}/>
+          <Route path='/register' element={<RegisterForm/>}/>
         </Route>
       
         <Route element={< PortalLayout/>}>
-          <Route path='/events' element={<Events/>}/>
-          <Route path='/events/:id' element={<EventDetails/>}/>
           <Route path='/home' element= {<Home/>}/>
+          <Route path='/events' element={<Events/>}/>
+          <Route path='/event/:id' element={<EventDetails/>}/>
+          
         </Route>
         <Route path='/admin' element={<AdminLayout/>}>
           <Route path='addevent' element={<AdminEventForm/>}/>

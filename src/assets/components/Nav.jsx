@@ -15,12 +15,12 @@ const SideNav = () => {
     <nav className='nav-list'>
      
       <NavLink to='/home'className={({ isActive }) => isActive ? 'active nav-link' : 'nav-link'}>
-          <i class="bi bi-border-all"></i>
+          <i className="bi bi-border-all"></i>
         <span className="nav-text">Dashboard</span> 
       </NavLink>
   
    <NavLink to='/events'className={({ isActive }) => isActive ? 'active nav-link' : 'nav-link'}>
-          <i class="bi bi-ticket"></i>
+          <i className="bi bi-ticket"></i>
         <span className="nav-text">Events</span>
     </NavLink>
     </nav>

@@ -10,11 +10,11 @@ useEffect(() => {
   fetchEvents()
 }, [])
 
-if(!events || events.lenght === 0) return <p>No events to show</p>
+if(!events || events.length === 0) return <p>No events to show</p>
 
   return (
     <>
-    <h1>Events</h1>
+   
     <div className='event-list'>
       {events.map((event) => (
         <EventCard key={event.id} event={event} />
