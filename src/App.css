@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import './assets/style/event.css';
+@import './assets/style/authentication.css';
 
 *,::before, *::after {
     box-sizing: border-box;
@@ -67,7 +68,7 @@
 
 --btn-primary-100: #F26CF9;
 --btn-cool-grey-10:#EEEFFF;
-
+--btn-primary-text: #FFFFFF;;
 --logo-text-color: #1C2346;
 --header-text-color: #37437D;
 --nav-text:#37437D;
@@ -115,9 +116,20 @@ a {
 
 .btn-primary {
     background-color: var(--btn-primary-100);
-    color: var(--font-grey-10);
+    color: var(--btn-primary-text);
     border-radius: 30px;
+    border: none;
     padding: 0.5em;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+ cursor: pointer;
+  background-color: var(--primary-90);
+  box-shadow: 0 4px 12px rgba(242, 108, 249, 0.4);
+
 }
 
 

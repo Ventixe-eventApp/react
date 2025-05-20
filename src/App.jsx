@@ -22,8 +22,8 @@ function App() {
     <EventProvider>
       <Routes>
         <Route path='/auth' element={<CenterLayout/>}>
-          <Route path='/login' element={<LoginForm/>}/>
-          <Route path='/register' element={<RegisterForm/>}/>
+          <Route path='login' element={<LoginForm/>}/>
+          <Route path='register' element={<RegisterForm/>}/>
         </Route>
       
         <Route element={< PortalLayout/>}>
