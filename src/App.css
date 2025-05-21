@@ -44,6 +44,9 @@
 
 --yellow-100: #FFCA39;
 --yellow-90: #FFEFC3;
+--red-50: #E94E77;
+
+
 
 --font-regular: 400;
 --font-medium: 500;
@@ -61,7 +64,7 @@
 --background: #FFFFFF;
 --background-side-nav:#EEEFFF;
 --background-card:#FFFFFF;
---background-header:#F7F7F7;;
+--background-header:#F7F7F7;
 --background-center-screen:#F7F7F7;;
 --background-footer:#F7F7F7;;
 
@@ -79,6 +82,8 @@
 --event-icon: #C3C3C4;
 
 --border-grey-30: #EDEDED;
+--input-border-error: #E94E77;
+--input-background-error: #FDEDFE;
 
 --event-card-image-background:#E0E0E1;
 
@@ -136,6 +141,7 @@ a {
 .center-screen {
     display: flex;
     justify-content: center;
+    background-color: var(--background-center-screen);
     align-items: center;
     height: 100dvh;
 }

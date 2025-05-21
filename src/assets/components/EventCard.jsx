@@ -20,7 +20,7 @@ const EventCard = ({ event }) => {
           </p>
         <h2 className='event-name'>{event.eventName}</h2>
       
-      <p className='event-location'><i class="bi bi-geo-alt"></i> {event.location}</p> 
+      <p className='event-location'><i className="bi bi-geo-alt"></i> {event.location}</p> 
       
       <p className='event-price'> ${event.price.toFixed(0)}</p>
     </div>
