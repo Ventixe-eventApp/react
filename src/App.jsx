@@ -10,7 +10,7 @@ import CenterLayout from './assets/layouts/CenterLayout'
 import EventDetails from './assets/pages/EventDetails'
 import { AdminLayout } from './assets/layouts/AdminLayout'
 import AdminEventForm from './assets/components/AdminEventForm'
-import AuthLayout from './assets/layouts/AuthLayout'
+
 import LoginForm from './assets/components/LoginForm'
 import RegisterForm from './assets/components/RegisterForm'
 import PortalLayout from './assets/layouts/PortalLayout'
