@@ -10,11 +10,12 @@ const EventProvider = ({children}) => {
     const fetchEvents =  async () => {
     try {
          
-        const res = await fetch('https://localhost:7020/api/event/')
+        const res = await fetch('https://event-service-ventixe-gqh4fgh4bng2fte9.swedencentral-01.azurewebsites.net/api/Event')
 
         if(res.ok) {
+
         const data = await res.json()
-         setEvents(data)
+         setEvents(data.result)
         }
     }  
      catch(error) {
@@ -24,11 +25,11 @@ const EventProvider = ({children}) => {
      const fetchEventsById = async (id) => {
 
         try {
-            const res = await fetch(`https://localhost:7020/api/event/${id}`)
+            const res = await fetch(`https://event-service-ventixe-gqh4fgh4bng2fte9.swedencentral-01.azurewebsites.net/api/Event/${id}`)
 
             if(res.ok) {
             const data = await res.json()
-            setSelectedEvent(data)
+            setSelectedEvent(data.result)
             }
             else {
                 console.error("Could not find event:", id)

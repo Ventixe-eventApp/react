@@ -165,7 +165,16 @@ cursor: pointer;
 }
 
 .tickets-card {
+  display: grid;
+  gap: 2rem;
    background-color: var(--background-card);
    padding: 1rem;
    border-radius: 12px;
+}
+
+.btn-ticket {
+ 
+  font-size: 14px;
+  font-weight: var(--font-medium);
+
 }

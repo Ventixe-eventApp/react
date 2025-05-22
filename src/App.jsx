@@ -14,6 +14,7 @@ import AdminEventForm from './assets/components/AdminEventForm'
 import LoginForm from './assets/components/LoginForm'
 import RegisterForm from './assets/components/RegisterForm'
 import PortalLayout from './assets/layouts/PortalLayout'
+import EventBooking from './assets/pages/EventBooking'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route path='/home' element= {<Home/>}/>
           <Route path='/events' element={<Events/>}/>
           <Route path='/event/:id' element={<EventDetails/>}/>
+          <Route path='/event/booking/:id' element={<EventBooking/>}/>
           
         </Route>
         <Route path='/admin' element={<AdminLayout/>}>

@@ -14,7 +14,6 @@ if(!events || events.length === 0) return <p>No events to show</p>
 
   return (
     <>
-   
     <div className='event-list'>
       {events.map((event) => (
         <EventCard key={event.id} event={event} />

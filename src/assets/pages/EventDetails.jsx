@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { EventContext } from '../contexts/EventContext';
 import SeatMap from '../images/seat-map.svg';
 
@@ -47,7 +48,7 @@ const EventDetails = () => {
             <div className='details-price'>
               <div className='price-container'>
                 <span className='price-text'> Starts from</span>
-                <span className='price'> ${selectedEvent.price.toFixed(0)}</span>
+                {/* <span className='price'> ${selectedEvent.price.toFixed(0)}</span> */}
               </div>
             </div>
 
@@ -65,8 +66,14 @@ const EventDetails = () => {
         <div className='tickets-card'>
           <h3>Seat Plan</h3>
           <img className='seat-map' src={SeatMap} alt="Map over seat plan" />
+
+         <Link to= {`/event/booking/${id}`}>
+            <button className='btn-primary btn-ticket'>Book ticket</button>
+          </Link>
+
         </div>
 
+         
       </div>
     </>
   )
