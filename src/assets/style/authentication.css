@@ -1,17 +1,18 @@
-form {
+.auth-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     background-color: var(--background-card);
     padding: 2rem;
     border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
     width: 100%;
    
 }
-form input
+form input, select
  {
     width: 100%;
     padding: 0.5rem;
@@ -22,7 +23,9 @@ form input
     color: var(--input-text-color);
 }
     form input:active,
-    form input:focus {
+    form input:focus,
+    form select:active,
+    form select:focus {
        outline: none;
        box-shadow: 0 0 5px var(--primary-100);
    }
@@ -46,7 +49,7 @@ form label {
   gap: 0.5rem; 
 }
 
-/* Standard checkbox-storlek */
+
 .checkbox-label-wrapper input[type="checkbox"] {
   width: 16px;
   height: 16px;
@@ -59,7 +62,7 @@ form label {
 
 }
 
-/* Error-styling på checkbox */
+
 .input-error {
 
   border-color: var(--input-border-error); 
@@ -67,7 +70,7 @@ form label {
 }
 
 .validation-error {
-  color: #E94E77;
+  color: var(--red-50);
   font-size: 12px;
   padding-top: 0.2rem;
 
@@ -76,5 +79,47 @@ form label {
      vertical-align: middle;
   }
 }
+
+.modal-overlay {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.modal-content {
+  background-color: var(--background-card);
+  padding: 2rem;
+  border-radius: 12px;
+  min-width: 300px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+
+  p {
+   padding-bottom: 1.5rem;
+    font-size: 16px;
+    color: var(--font-grey-80);
+  }
+
+  button{
+    padding: 1rem 2rem;
+
+  }
+
+}
+
+
+
+
+
 
 

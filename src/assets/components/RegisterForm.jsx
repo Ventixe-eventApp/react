@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 const RegisterForm = () => {
 
-  const { register, handleSubmit, formState: { errors }, reset, watch, setError } = useForm()
+  const { register, handleSubmit, formState: { errors }, reset, watch, setError, clearErrors } = useForm()
   const navigate = useNavigate()
   const password = watch('password');
 
@@ -19,6 +19,7 @@ const RegisterForm = () => {
       })
 
       if (!res.ok) {
+
         const errorData = await res.json();
         
         if (errorData.message === 'Email already exists') {
@@ -32,13 +33,15 @@ const RegisterForm = () => {
     }
     catch (error) {
       console.error("Something went wrong:", error)
+        setError('form', { type: 'manual', message: 'An error occurred. Please try again later.' })
+       return 
     }
 
-    navigate('/login');
+    navigate('auth/login');
 
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form className='auth-form' onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className='form-header'>
         <h1>Register</h1>
       </div>
@@ -46,7 +49,7 @@ const RegisterForm = () => {
       <div className='form-group'>
         <label htmlFor="register-email">Email</label>
         <input id='register-email' type='email' placeholder='Enter email'
-          {...register('email', { required: 'Email field is required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Ogiltig e-post' } })}
+          {...register('email', { required: 'Email field is required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email' } })}
           className={errors.email ? 'input-error' : ''} />
         {errors.email && <p className="validation-error"><i className="bi bi-exclamation-octagon"></i>{errors.email.message}</p>}
       </div>
@@ -70,17 +73,20 @@ const RegisterForm = () => {
             type="checkbox"
             id="terms-checkbox"
             {...register("terms", { required: "You must agree to the terms and conditions." })}
-            className={errors.terms ? 'input-error' : ''}
-          />
-          <label htmlFor="terms-checkbox" className="checkbox-label">
-            I agree to the terms and conditions
-          </label>
-        </div>
-        <div ></div>
+            className={errors.terms ? 'input-error' : ''} />
+         
+          <label htmlFor="terms-checkbox" className="checkbox-label"> I agree to the terms and conditions  </label>
+            </div>
         {errors.terms && <p className="validation-error"><i className="bi bi-exclamation-octagon"></i>{errors.terms.message}</p>}
       </div>
 
-
+  {errors.form && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>{errors.form.message}</p>
+           <button className='btn btn-primary' onClick={() => {clearErrors('form'); }}>OK</button> </div>
+        </div>
+      )}
 
       <button className='btn btn-primary' type='submit'>Register</button>
     </form>

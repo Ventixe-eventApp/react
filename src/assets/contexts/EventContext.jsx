@@ -13,7 +13,6 @@ const EventProvider = ({children}) => {
         const res = await fetch('https://event-service-ventixe-gqh4fgh4bng2fte9.swedencentral-01.azurewebsites.net/api/Event')
 
         if(res.ok) {
-
         const data = await res.json()
          setEvents(data.result)
         }

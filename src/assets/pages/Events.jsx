@@ -10,7 +10,7 @@ useEffect(() => {
   fetchEvents()
 }, [])
 
-if(!events || events.length === 0) return <p>No events to show</p>
+if(!events || events.length === 0) return <p>Loading events..</p>
 
   return (
     <>

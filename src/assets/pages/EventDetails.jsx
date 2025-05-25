@@ -42,7 +42,7 @@ const EventDetails = () => {
               </span>
             </div>
 
-            <p className='location'><i class="bi bi-geo-alt"></i> {selectedEvent.location}</p>
+            <p className='location'><i className="bi bi-geo-alt"></i> {selectedEvent.location}</p>
 
 
             <div className='details-price'>

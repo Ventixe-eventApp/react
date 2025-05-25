@@ -15,6 +15,9 @@ import LoginForm from './assets/components/LoginForm'
 import RegisterForm from './assets/components/RegisterForm'
 import PortalLayout from './assets/layouts/PortalLayout'
 import EventBooking from './assets/pages/EventBooking'
+import AuthLayout from './assets/layouts/AuthLayout'
+import BookingLayout from './assets/layouts/BookingLayout'
+import BookingConfim from './assets/pages/BookingConfim'
 
 function App() {
 
@@ -22,17 +25,19 @@ function App() {
   return (
     <EventProvider>
       <Routes>
-        <Route path='/auth' element={<CenterLayout/>}>
+        <Route path='/auth' element={<AuthLayout/>}>
           <Route path='login' element={<LoginForm/>}/>
           <Route path='register' element={<RegisterForm/>}/>
         </Route>
       
         <Route element={< PortalLayout/>}>
-          <Route path='/home' element= {<Home/>}/>
+          <Route path='/' element= {<Home/>}/>
           <Route path='/events' element={<Events/>}/>
           <Route path='/event/:id' element={<EventDetails/>}/>
+          </Route>
+          <Route element={< BookingLayout/>}>
           <Route path='/event/booking/:id' element={<EventBooking/>}/>
-          
+          <Route path='/event/booking/confirmation/' element={<BookingConfim/>}/>
         </Route>
         <Route path='/admin' element={<AdminLayout/>}>
           <Route path='addevent' element={<AdminEventForm/>}/>

@@ -14,7 +14,7 @@ const SideNav = () => {
 
     <nav className='nav-list'>
      
-      <NavLink to='/home'className={({ isActive }) => isActive ? 'active nav-link' : 'nav-link'}>
+      <NavLink to='/'className={({ isActive }) => isActive ? 'active nav-link' : 'nav-link'}>
           <i className="bi bi-border-all"></i>
         <span className="nav-text">Dashboard</span> 
       </NavLink>

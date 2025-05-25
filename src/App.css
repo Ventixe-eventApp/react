@@ -65,8 +65,9 @@
 --background-side-nav:#EEEFFF;
 --background-card:#FFFFFF;
 --background-header:#F7F7F7;
---background-center-screen:#F7F7F7;;
---background-footer:#F7F7F7;;
+--background-center-screen:#F7F7F7;
+--background-footer:#F7F7F7;
+--background-hero-booking: #ffffff2d;
 
 
 --btn-primary-100: #F26CF9;
@@ -146,6 +147,12 @@ a {
     height: 100dvh;
 }
 
+.booking-layout {
+    margin: 0;
+    height: 100dvh;
+   
+}
+
 .divider {
   height: 1px;
   background-color: var(--border-grey-30);
@@ -199,7 +206,7 @@ a {
 .nav-link {
     display: flex;
     gap: 1rem;
-    color: var (--nav-text);
+    color: var(--nav-text);
     padding: 0.5rem 0;
     align-items: center;  
 

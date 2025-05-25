@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const LoginForm = () => {
   
-  const { register, handleSubmit, formState: { errors }, reset, setError } = useForm()
+  const { register, handleSubmit, formState: { errors }, reset, setError, clearErrors } = useForm()
   const navigate = useNavigate()
 
   const onSubmit = async (data) => {
@@ -26,6 +26,8 @@ const LoginForm = () => {
     }
     catch (error) {
       console.error("Something went wrong:", error)
+      setError('form', { type: 'manual', message: 'An error occurred. Please try again later.' })
+      return
     }
 
     navigate('/events');
@@ -34,7 +36,7 @@ const LoginForm = () => {
 
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+  <form className='auth-form' onSubmit={handleSubmit(onSubmit)} noValidate>
   <div className='form-header'>
         <h1>Log In</h1>
       </div>
@@ -52,6 +54,11 @@ const LoginForm = () => {
            className={errors.password ? 'input-error' : ''} />
          {errors.password && <p className="validation-error"><i className="bi bi-exclamation-octagon"></i>{errors.password.message}</p>}
          </div> 
+
+    <div className="validation-error">
+      {errors.form && ( <p> <i className="bi bi-exclamation-octagon"></i>{errors.form.message}</p> )}
+    </div>   
+
       <button type="submit" className="btn btn-primary">Login</button>
     </form>
   )
