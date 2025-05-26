@@ -72,8 +72,6 @@ cursor: pointer;
 
 /* EVENT DETAILS */
 
-
-
 .details-container {
   display: grid;
   gap: 1rem;
@@ -164,7 +162,23 @@ cursor: pointer;
   color: var(--font-grey-90);
 }
 
-.tickets-card {
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.seat-header{
+ display: flex;
+  padding: 1rem;
+}
+   .seat-map img {
+      max-width: 100%;
+      height: auto;
+   }
+
+.package-card {
   display: grid;
   gap: 2rem;
   background-color: var(--background-card);
@@ -172,11 +186,47 @@ cursor: pointer;
   border-radius: 12px;
 }
 
+.package-list{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding-left: 0;
+
+}
+
+.package-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 12px;;
+  background-color: var(--background-package-card);
+
+}
+
+.description-text {
+  padding-top: 0.5rem;
+  color: var(--package-text-grey);
+  font-size: 12px;
+  align-items: center;
+
+  i {
+    color: var(--event-icon);
+    padding-right: 0.3rem;
+  }
+}
+
+
 .btn-ticket {
   font-size: 14px;
   font-weight: var(--font-medium);
 
 }
+
+
+/* BOOKING */
 
 .booking-card {
     display: flex;
@@ -241,9 +291,3 @@ cursor: pointer;
   }
 }
 
-/* .form-center {
- display: flex;
- justify-content: center;
- align-items: center;
-width: 100%;
-} */

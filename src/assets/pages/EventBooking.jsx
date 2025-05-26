@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Hero from '../images/hero-booking.jpg'
 
-// Börja med att lägga till packages
+
 
 const EventBooking = () => {
   const {id} = useParams();

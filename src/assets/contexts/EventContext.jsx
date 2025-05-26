@@ -28,6 +28,7 @@ const EventProvider = ({children}) => {
 
             if(res.ok) {
             const data = await res.json()
+            console.log(data.result)
             setSelectedEvent(data.result)
             }
             else {

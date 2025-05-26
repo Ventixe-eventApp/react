@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import { EventContext } from '../contexts/EventContext';
 import SeatMap from '../images/seat-map.svg';
+import PackageItem from '../components/PackageItem';
 
 const EventDetails = () => {
   const { id } = useParams();
@@ -45,12 +46,12 @@ const EventDetails = () => {
             <p className='location'><i className="bi bi-geo-alt"></i> {selectedEvent.location}</p>
 
 
-            <div className='details-price'>
+            {/* <div className='details-price'>
               <div className='price-container'>
                 <span className='price-text'> Starts from</span>
-                {/* <span className='price'> ${selectedEvent.price.toFixed(0)}</span> */}
+                 <span className='price'> ${selectedEvent.}</span> 
               </div>
-            </div>
+            </div>  */}
 
           <div className="divider"></div>
 
@@ -63,10 +64,25 @@ const EventDetails = () => {
         </div>
 
 
-        <div className='tickets-card'>
-          <h3>Seat Plan</h3>
-          <img className='seat-map' src={SeatMap} alt="Map over seat plan" />
+        <div className='package-card'>
+        <div className='seat-header'>
+          <h3>Seat Plan</h3></div>
+          <div className='seat-map'>
+          <img src={SeatMap} alt="Map over seat plan" />
+        </div>
 
+        <div className='packages'>
+          <h3>Packages</h3>
+          {selectedEvent.packages && selectedEvent.packages.length > 0 ? (
+            <ul className='package-list'>
+              {selectedEvent.packages.map((pkg) => (
+                <PackageItem key={pkg.id} pkg={pkg} />
+              ))}
+            </ul>
+          ) : (
+            <p>No packages available for this event.</p>
+          )}
+        </div>
          <Link to= {`/event/booking/${id}`}>
             <button className='btn-primary btn-ticket'>Book ticket</button>
           </Link>
