@@ -136,19 +136,9 @@ cursor: pointer;
   }
 }
 
-.details-price {
-    display: flex;
+.book-btn {
+     display: flex;
     justify-content: flex-end;
-}
-.price {
-  display: flex;
-  font-size: 22px;
-  font-weight: var(--font-semi-bold);
-  color: var(--font-primary-100);
-}
-.price-text {
-  font-size: 10px;
-  color: var(--font-grey-70);
 }
 
 .description-header {
@@ -179,9 +169,7 @@ cursor: pointer;
    }
 
 .package-card {
-  display: grid;
-  gap: 2rem;
-  background-color: var(--background-card);
+
   padding: 1rem;
   border-radius: 12px;
 }
@@ -219,75 +207,31 @@ cursor: pointer;
 }
 
 
+.details-price {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.price {
+  display: flex;
+  font-size: 22px;
+  font-weight: var(--font-semi-bold);
+  color: var(--font-primary-100);
+}
+.price-text {
+  font-size: 10px;
+  color: var(--font-grey-70);
+}
+
 .btn-ticket {
   font-size: 14px;
   font-weight: var(--font-medium);
+  width: 100%;
 
 }
 
 
-/* BOOKING */
 
-.booking-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width:100%;
-    background-color: var(--background-card);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
 
-.booking-form {
-  display: flex;
-  flex-direction: column;
-  width: 45%;
-  gap: 0.5rem;
-  padding: 1rem;
-}
 
-.hero-booking {
-  height: 400px;
-  margin: 0;
-  background-position: center;
-}
-
-.header-booking {
-  font-size: 45px;
-
-}
-.booking-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 2rem;
-  background-color:var(--background-hero-booking);
-}
-.header-date {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--font-grey-100);
-}
-.booking-container {
-  background-color: var(--background-center-screen);
-}
-.booking-description {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-  width: 80%;
-  
-
-  a {
-    color: var(--font-primary-100);
-    font-weight: var(--font-medium);
-   
-  }
-}
 

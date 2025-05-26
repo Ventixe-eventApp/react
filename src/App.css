@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import './assets/style/event.css';
 @import './assets/style/authentication.css';
+@import'./assets/style/booking.css';
 
 *,::before, *::after {
     box-sizing: border-box;
@@ -78,7 +79,7 @@
 --nav-text:#37437D;
 --nav-text-active: #F26CF9;
 --footer-text-color: #777779;
-
+--price-text-color: #F26CF9;
 --description-header:#37437D;
 --event-icon: #C3C3C4;
 --package-text-grey: #56565C;
@@ -128,7 +129,7 @@ a {
     border: none;
     padding: 1em;
     transition: box-shadow 0.3s ease, transform 0.2s ease;
-  
+    margin-top: 1rem;
 }
 
 .btn-primary:hover,
@@ -142,6 +143,7 @@ a {
 
 .center-screen {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     background-color: var(--background-center-screen);
     align-items: center;

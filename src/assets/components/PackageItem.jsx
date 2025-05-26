@@ -6,8 +6,8 @@ const PackageItem = ({pkg}) => {
   <div className="package-info">
     <h4 className="package-name">{pkg.packageName}</h4>
     <div className='description-text'>
-    <p className="package-type"><i class="bi bi-check-circle"></i>{pkg.seactionType}</p>
-    <p className="package-description"><i class="bi bi-check-circle"></i>{pkg.description}</p>
+    <p className="package-type"><i className="bi bi-check-circle"></i>{pkg.seactionType}</p>
+    <p className="package-description"><i className="bi bi-check-circle"></i>{pkg.description}</p>
     </div>
   </div>
   <div className="package-price">

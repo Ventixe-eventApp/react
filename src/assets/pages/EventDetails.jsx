@@ -46,12 +46,13 @@ const EventDetails = () => {
             <p className='location'><i className="bi bi-geo-alt"></i> {selectedEvent.location}</p>
 
 
-            {/* <div className='details-price'>
-              <div className='price-container'>
-                <span className='price-text'> Starts from</span>
-                 <span className='price'> ${selectedEvent.}</span> 
+            <div className='book-btn'>
+              <div className='btn-booking'>
+               <Link to= {`/event/booking/${id}`}>
+            <button className='btn-primary btn-ticket'>Book ticket</button>
+          </Link> 
               </div>
-            </div>  */}
+            </div> 
 
           <div className="divider"></div>
 
