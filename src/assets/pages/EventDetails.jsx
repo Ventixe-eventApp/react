@@ -30,6 +30,7 @@ const EventDetails = () => {
           <div className='card-details'>
             <h2 className='details-name'>{selectedEvent.eventName}</h2>
             <div className='detail-date'>
+              <span className='details-artist'>{selectedEvent.artistName}</span>
               <span className='date'>
                 <i className="bi bi-calendar4-event"></i>
                 {new Date(selectedEvent.startDate).toLocaleString('en-US', {

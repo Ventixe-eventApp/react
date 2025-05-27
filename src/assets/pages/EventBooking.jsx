@@ -42,8 +42,7 @@ const EventBooking = () => {
     };
 
     try {
-      console.log("data.packageId:", data.packageId);
-      console.log("quantity.packageId:", data.packageQuantity,);
+    
       const res = await fetch('https://booking-service-ventixe-ana6b3azaketebav.swedencentral-01.azurewebsites.net/api/Booking', {
         method: 'POST',
         headers: {
@@ -98,37 +97,40 @@ const EventBooking = () => {
         </div>
       </div>
       <div className='booking-container'>
-        <div className='booking-description'>
-          <span>{selectedEvent.description}</span>
-        </div>
-        <div className='form-center'>
 
-        {selectedEvent.packages && selectedEvent.packages.length > 0 && (
-    <div className='package-card-booking'>
-      <div className='package-list-booking'>
-        <div className='package-image'>
-          <img src={SeatMap} alt="Map over seat plan" />
-        </div>
-        <ul className='package-list-booking'>
-          {selectedEvent.packages.map((pkg) => (
-            <PackageItem key={pkg.id} pkg={pkg} />
-          ))}
-        </ul>
-      </div>
-    </div>
-  )}
+
+
+
+
+        <div className='form-center'>
+          <div className='booking-description'>
+            <span>{selectedEvent.description}</span></div>
+          {selectedEvent.packages && selectedEvent.packages.length > 0 && (
+            <div className='package-card-booking'>
+              <div className='package-list-booking'>
+                <div className='package-image'>
+                  <img src={SeatMap} alt="Map over seat plan" />
+                </div>
+                <ul className='package-list-booking'>
+                  {selectedEvent.packages.map((pkg) => (
+                    <PackageItem key={pkg.id} pkg={pkg} />
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
 
           <form className='booking-form' onSubmit={handleSubmit(onSubmit)} noValidate>
-          <span className='form-text'>Please select the number of tickets you'd like to book (maximum 10 per person).
-            If you're already a member, <Link to="/auth/login">log in here</Link> to access your account and enjoy a faster booking process.
-            Not a member? Simply fill out the contact form below to complete your reservation.
-          </span>
+            <span className='form-text'>Please select the number of tickets you'd like to book (maximum 10 per person).
+              If you're already a member, <Link to="/auth/login">log in here</Link> to access your account and enjoy a faster booking process.
+              Not a member? Simply fill out the contact form below to complete your reservation.
+            </span>
             <div className="form-group">
               <label htmlFor="packageId">Select Package</label>
               <select key={selectedEvent.eventId}
                 id="packageId"
                 {...register('packageId', {
-                 
+
                 })}
                 className={errors.packageId ? 'input-error' : ''}>
                 <option value="">Choose a package</option>

@@ -45,15 +45,13 @@
   background-color: var(--background-center-screen);
 }
 .booking-description {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-content: center;
+  padding: 2rem;
+  color: var(--font-grey-80);
+  font-size: 18px;
   
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-  
+
   a {
     color: var(--font-primary-100);
     font-weight: var(--font-medium);

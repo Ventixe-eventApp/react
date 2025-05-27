@@ -9,13 +9,18 @@ const LoginForm = () => {
   const navigate = useNavigate()
 
   const onSubmit = async (data) => {
+    const formData = {
+      email: data.email,
+      password: data.password,
+     
+    }
 
     try {
 
-      const res = await fetch('', {
+      const res = await fetch('https://localhost:7221/api/Auth/login', {
         method:'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       })
 
        if (!res.ok) {

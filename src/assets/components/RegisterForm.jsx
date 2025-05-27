@@ -9,13 +9,19 @@ const RegisterForm = () => {
   const password = watch('password');
 
   const onSubmit = async (data) => {
+    const formData = {
+      email: data.email,
+      password: data.password,
+      confirmPassword: data.confirmPassword,
+      termsAndConditions: data.terms
+    }
 
     try {
 
-      const res = await fetch('', {
+      const res = await fetch('https://localhost:7221/api/Auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       })
 
       if (!res.ok) {
@@ -37,7 +43,7 @@ const RegisterForm = () => {
        return 
     }
 
-    navigate('auth/login');
+    navigate('/auth/login');
 
   }
   return (
