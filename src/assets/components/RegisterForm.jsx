@@ -9,6 +9,7 @@ const RegisterForm = () => {
   const password = watch('password');
 
   const onSubmit = async (data) => {
+    
     const formData = {
       email: data.email,
       password: data.password,
@@ -24,26 +25,43 @@ const RegisterForm = () => {
         body: JSON.stringify(formData),
       })
 
-      if (!res.ok) {
+      var result = await res.json();
+      
+      if (res.ok) {
 
-        const errorData = await res.json();
+      const userId = result.userId;  
+      const email = formData.email
+
+      await fetch("https://localhost:7154/api/Verification/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+    })
+
+        sessionStorage.setItem('userId', result.userId)
+        sessionStorage.setItem('email', formData.email)
+
+        navigate('/auth/register/verify', {
+          state: {userId, email }
+        })  
         
-        if (errorData.message === 'Email already exists') {
-          setError('email', { type: 'manual', message: 'Email already exists' });
-        }
-        else {
-          setError('form', { type: 'manual', message: 'An error occurred. Please try again.' });
-        }
         return
       }
+
+      if (result.message === 'Email already exists') {
+        setError('email', { type: 'manual', message: 'Email already exists' })
+      }
+      else {
+        setError('form', { type: 'manual', message: 'An error occurred. Please try again.' })
+      }
+
     }
     catch (error) {
       console.error("Something went wrong:", error)
-        setError('form', { type: 'manual', message: 'An error occurred. Please try again later.' })
-       return 
+      setError('form', { type: 'manual', message: 'An error occurred. Please try again later.' })
+      return
     }
 
-    navigate('/auth/login');
 
   }
   return (
@@ -80,17 +98,17 @@ const RegisterForm = () => {
             id="terms-checkbox"
             {...register("terms", { required: "You must agree to the terms and conditions." })}
             className={errors.terms ? 'input-error' : ''} />
-         
+
           <label htmlFor="terms-checkbox" className="checkbox-label"> I agree to the terms and conditions  </label>
-            </div>
+        </div>
         {errors.terms && <p className="validation-error"><i className="bi bi-exclamation-octagon"></i>{errors.terms.message}</p>}
       </div>
 
-  {errors.form && (
+      {errors.form && (
         <div className="modal-overlay">
           <div className="modal-content">
             <p>{errors.form.message}</p>
-           <button className='btn btn-primary' onClick={() => {clearErrors('form'); }}>OK</button> </div>
+            <button className='btn btn-primary' onClick={() => { clearErrors('form'); }}>OK</button> </div>
         </div>
       )}
 

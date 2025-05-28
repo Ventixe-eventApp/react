@@ -9,6 +9,7 @@ const BookingConfim = () => {
     const bookingId = state?.bookingId
     const eventId = state?.eventId
 
+     
 useEffect(()=> {
     fetchEventsById(eventId)
 
