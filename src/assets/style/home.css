@@ -1,0 +1,58 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+
+  @media (width >= 768px) {
+
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+   
+}
+
+@media (width >= 1400px) {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+}
+
+
+
+.event-amount-card{
+    display: flex;
+    gap:1rem;
+    background-color: var(--background-card);
+    
+    padding: 1rem;
+    border-radius: 12px;
+
+}
+.dashboard-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--dashboard-icon-text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--background-dashboard-icon);
+}
+.card-amount-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.amount-description{
+    color: var(--dashboard-description-text);
+    font-size: 12px;
+}
+.amount-number {
+    color: var(--dashboard-number-text);
+    font-size: 20px;
+    font-weight: var(--font-semi-bold);
+
+}

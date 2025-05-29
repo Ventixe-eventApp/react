@@ -1,6 +1,5 @@
 const pathTitleRules = [
-  { pattern: /^\/$/, title: 'Home' }, 
-  { pattern: /^\/home$/, title: 'Dashboard' },
+  { pattern: /^\/$/, title: 'Welcome' }, 
   { pattern: /^\/events$/, title: 'Events' },
   { pattern: /^\/admin\/addevent$/, title: 'Add Event' },
   { pattern: /^\/event\/booking\/[^\/]+$/, title: 'Tickets' },

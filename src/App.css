@@ -2,6 +2,7 @@
 @import './assets/style/event.css';
 @import './assets/style/authentication.css';
 @import'./assets/style/booking.css';
+@import './assets/style/home.css';
 
 *,::before, *::after {
     box-sizing: border-box;
@@ -70,12 +71,18 @@
 --background-footer:#F7F7F7;
 --background-hero-booking: #ffffff2d;
 --background-package-card: #F7F7F7;
+--background-dashboard-icon:#F26CF9;
 
 --btn-primary-100: #F26CF9;
 --btn-cool-grey-10:#EEEFFF;
---btn-primary-text: #FFFFFF;;
+--btn-primary-text: #FFFFFF;
+
+--background-btn-secondary:#37437D;
+--background-btn-secondary-hover:#5562A2;
+
 --logo-text-color: #1C2346;
---header-text-color: #37437D;
+--header-text-color: #37437D; 
+--header-username-text-color: #1C2346;
 --nav-text:#37437D;
 --nav-text-active: #F26CF9;
 --footer-text-color: #777779;
@@ -83,6 +90,9 @@
 --description-header:#37437D;
 --event-icon: #C3C3C4;
 --package-text-grey: #56565C;
+--dashboard-icon-text: #FFFFFF;
+--dashboard-description-text:#777779;
+--dashboard-number-text:#37437D;
 
 --border-grey-30: #EDEDED;
 --input-border-error: #E94E77;
@@ -134,12 +144,25 @@ a {
 
 .btn-primary:hover,
 .btn-primary:focus {
- cursor: pointer;
+  cursor: pointer;
   background-color: var(--primary-90);
   box-shadow: 0 4px 12px rgba(242, 108, 249, 0.4);
-
 }
 
+.btn-secondary {
+     background-color: var(--background-btn-secondary);
+    color: var(--btn-primary-text);
+    border-radius: 30px;
+    border: none;
+    padding: 1em;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+  cursor: pointer;
+  background-color: var(--background-btn-secondary-hover);
+}
 
 .center-screen {
     display: flex;
@@ -281,16 +304,64 @@ header{
     background-color: var(--background-header);
     border-radius: 1rem;
     padding: 1.5rem;
-
+    align-items: center;
     @media (width >= 768px) {
-        display: block;
+        display: flex;
+       
     }
 }
 
 .header-title {
+    flex:1;
     font-size: 24px;
     color: var(--header-text-color);
     font-weight: var(--font-semi-bold);
+}
+
+.not-logged-in {
+    display: flex;
+    gap: 1rem;
+
+}
+.user-header {
+    font-size: 14px;
+    font-weight: var(--font-semi-bold);
+    color: var(--header-username-text-color);
+}
+
+
+.btn-logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-btn-secondary);
+    border: none;
+    width:45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--font-grey-10);
+    align-content: center;
+
+    i {
+
+        font-size: 20px;
+    }
+}
+.btn-logout:hover ,
+.btn-logout:focus{
+    background-color: var(--background-btn-secondary-hover);
+}
+
+
+
+
+.logged-in{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 main {

@@ -32,7 +32,7 @@ const UserProfileForm = () => {
         body: JSON.stringify(formData),
       })
      if (res.ok) {
-        navigate('/events');
+        navigate('/Auth/login');
 
       } else {
         setError('form', { type: 'manual', message: 'Something went wrong. Please try again.' })

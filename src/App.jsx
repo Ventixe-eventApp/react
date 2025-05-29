@@ -6,9 +6,7 @@ import './App.css'
 import Events from './assets/pages/Events'
 import Home from './assets/pages/Home'
 import EventProvider from './assets/contexts/EventContext'
-
 import EventDetails from './assets/pages/EventDetails'
-
 import LoginForm from './assets/components/LoginForm'
 import RegisterForm from './assets/components/RegisterForm'
 import PortalLayout from './assets/layouts/PortalLayout'
@@ -18,12 +16,14 @@ import BookingLayout from './assets/layouts/BookingLayout'
 import BookingConfim from './assets/pages/BookingConfim'
 import UserProfileForm from './assets/components/UserProfileForm'
 import VerifyEmailPage from './assets/pages/VerifyEmailPage'
+import BookingProvider from './assets/contexts/BookingContext'
 
 function App() {
 
 
   return (
     <EventProvider>
+      <BookingProvider>
       <Routes>
         <Route path='/auth' element={<AuthLayout/>}>
           <Route path='login' element={<LoginForm/>}/>
@@ -43,6 +43,7 @@ function App() {
         </Route>
       
       </Routes>
+      </BookingProvider>
     </EventProvider>
   )
 }

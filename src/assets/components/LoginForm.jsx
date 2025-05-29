@@ -23,11 +23,24 @@ const LoginForm = () => {
         body: JSON.stringify(formData),
       })
 
-       if (!res.ok) {
+      if (!res.ok) {
         setError('form', { type: 'manual',  message: 'Invalid email or password' });
         return
       }
 
+      var result = await res.json();
+      
+      console.log("Login API response:", result);
+
+      const user = result.user;
+      console.log("Saving to localStorage:", result.user);
+      localStorage.setItem("user", JSON.stringify({
+        userId: user.userId,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+      }))
+            navigate('/events')
     }
     catch (error) {
       console.error("Something went wrong:", error)
@@ -35,7 +48,7 @@ const LoginForm = () => {
       return
     }
 
-    navigate('/events');
+  
 
   }
 
