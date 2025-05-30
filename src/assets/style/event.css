@@ -72,16 +72,11 @@ cursor: pointer;
 
 /* EVENT DETAILS */
 
-
-
 .details-container {
-
-
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
   padding: 1rem;
-
 
 @media (width >=1400px) {
 
@@ -176,7 +171,7 @@ cursor: pointer;
 }
 .seat-header{
  display: flex;
-  padding: 1rem;
+  padding: 0 1rem 1.5rem 0;
 }
    .seat-map img {
       max-width: 100%;

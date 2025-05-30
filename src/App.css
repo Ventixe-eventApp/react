@@ -227,9 +227,21 @@ a {
 
 .nav-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     margin-top: 2rem;
+
+     /* @media (width >= 1400px) {
+      
+       flex-direction: column;
+    } */
+     @media (width >= 768px) {
+       
+     
+       flex-direction: column;
+    }
+    
+
 }
 
 .nav-link {
@@ -250,13 +262,11 @@ a {
 
 }
 
-
 .nav-link span {
-     @media (width >= 768px) {
-       
-       display: none;
+    @media (width >= 768px) {
+      display: none;
     }
-    
+   
 @media (width >= 1400px) {
     display: block;
  
@@ -274,6 +284,7 @@ a {
 .logo {
     display: flex;
     gap: 0.5rem;
+    cursor: pointer;
 }
 
 .logo-img {

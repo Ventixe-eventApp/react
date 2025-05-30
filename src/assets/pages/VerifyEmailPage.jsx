@@ -9,12 +9,10 @@ const VerifyEmailPage = () => {
   const userId = state?.userId || sessionStorage.getItem('userId');
   const email = state?.email || sessionStorage.getItem('email');
 
-
-
   const onSubmit = async (data) => {
         
     try {
-      const res = await fetch('https://localhost:7154/api/Verification/verify', {
+      const res = await fetch('https://verificationprovider-service-ventixe-fpgxf9ddg8e7g5hp.swedencentral-01.azurewebsites.net/verify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, verificationCode: data.code })
@@ -32,7 +30,6 @@ const VerifyEmailPage = () => {
       setError('form', { type: 'manual', message: 'Something went wrong. Please try again.' });
     }
   };
-
 
   return (
    <div className='verification-card'>

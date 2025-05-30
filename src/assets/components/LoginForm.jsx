@@ -17,7 +17,7 @@ const LoginForm = () => {
 
     try {
 
-      const res = await fetch('https://localhost:7221/api/Auth/login', {
+      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/login', {
         method:'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -30,10 +30,10 @@ const LoginForm = () => {
 
       var result = await res.json();
       
-      console.log("Login API response:", result);
+      
 
       const user = result.user;
-      console.log("Saving to localStorage:", result.user);
+     
       localStorage.setItem("user", JSON.stringify({
         userId: user.userId,
         firstName: user.firstName,
@@ -47,8 +47,6 @@ const LoginForm = () => {
       setError('form', { type: 'manual', message: 'An error occurred. Please try again later.' })
       return
     }
-
-  
 
   }
 

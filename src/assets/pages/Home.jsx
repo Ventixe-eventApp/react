@@ -13,7 +13,7 @@ useEffect(() => {
   fetchBookings()
 }, [])
 
-console.log(bookings)
+
 
   if (events == null || bookings == null) {return <p>Loading...</p> }
     

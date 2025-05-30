@@ -4,8 +4,6 @@ import { EventContext } from '../contexts/EventContext';
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Hero from '../images/hero-booking.jpg'
-
 import PackageItem from '../components/PackageItem';
 
 
@@ -70,11 +68,10 @@ const EventBooking = () => {
   } else if (!selectedEvent.packages) {
     return <p>This event has no available packages.</p>;
 
-
   }
   return (
     <>
-      <div className='hero-booking ' style={{ backgroundImage: `url(${Hero})` }}>
+      <div className='hero-booking'>
         <div className='booking-info'>
           <h1 className='header-booking'>{selectedEvent.eventName}</h1>
           <h2>{selectedEvent.artistName}</h2>
@@ -95,11 +92,6 @@ const EventBooking = () => {
         </div>
       </div>
       <div className='booking-container'>
-
-
-
-
-
         <div className='form-center'>
           <div className='booking-description'>
             <span>{selectedEvent.description}</span></div>
@@ -107,8 +99,7 @@ const EventBooking = () => {
             <div className='package-card-booking'>
               <div className='package-list-booking'>
                 <div className='package-image-booking'>
-                  {selectedEvent.seatmapImagePath && (<img src={selectedEvent.seatmapImagePath} alt={selectedEvent.eventName} className="package-image-booking" /> )}
-                 
+                  {selectedEvent.seatmapImagePath && (<img src={selectedEvent.seatmapImagePath} alt={selectedEvent.eventName} className="package-image-booking" /> )} 
                 </div>
                 <ul className='package-list-booking'>
                   {selectedEvent.packages.map((pkg) => (
@@ -216,13 +207,13 @@ const EventBooking = () => {
               <div className="modal-overlay">
                 <div className="modal-content">
                   <p>{errors.form.message}</p>
-                  <button className='btn-primary' onClick={() => { clearErrors('form'); }}>OK</button> </div>
+                  <button className='btn-primary' onClick={() => { clearErrors('form'); }}>OK</button>
+                  </div>
               </div>
             )}
 
             <button type="submit" className="btn btn-primary">Buy tickets</button>
           </form>
-
         </div>
       </div>
     </>

@@ -26,7 +26,7 @@ const UserProfileForm = () => {
 
     try {
 
-      const res = await fetch('https://localhost:7221/api/Auth/createprofile', {
+      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/createprofile', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

@@ -9,61 +9,56 @@ const Header = () => {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
+
     const storedUser = localStorage.getItem("user")
+
     if (storedUser) {
       setUser(JSON.parse(storedUser))
     }
     else {
       setUser(null)
     }
-      
-  
+
+
   }, [pathname])
- 
+
   const handleLogout = async () => {
-   try {
-    const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/api/Auth/logout', {
-        method:'POST'
+    try {
+      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/logout', {
+        method: 'POST'
       })
 
-    if(res.ok) {
-      localStorage.removeItem('user');
-    navigate('/');
-    }  
-  } catch (error) {
-    console.error('Logout failed:', error);
-  }
+      if (res.ok) {
+        localStorage.removeItem('user');
+        navigate('/');
+      }
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
 
-
   }
-    const handleLogin = () => {
+  const handleLogin = () => {
     navigate('/auth/login');
   };
 
   return (
     <>
-    <header className= "header">
-    <div className='header-title'>{title}</div>
+      <header className="header">
+        <div className='header-title'>{title}</div>
 
-
-    <div className='header-options'>
-   {user ? (
-          <div className='logged-in'>
-            
-            <button title='Log-out' className="btn btn-logout" onClick={handleLogout}><i className="bi bi-box-arrow-right"></i></button>
-            <span className="user-header">{user.firstName} {user.lastName}</span>
-          </div>) : 
-        
-          (<div className='not-logged-in'>
-          <button className="btn btn-secondary" onClick={handleLogin}>Log in</button>
-            <button className="btn btn-secondary" onClick={() => navigate('auth/register')}>Register</button>
+        <div className='header-options'>
+          {user ? (<div className='logged-in'>
+              <button title='Log-out' className="btn btn-logout" onClick={handleLogout}><i className="bi bi-box-arrow-right"></i></button>
+              <span className="user-header">{user.firstName} {user.lastName}</span>
+            </div>) :
+            (<div className='not-logged-in'>
+              <button className="btn btn-secondary" onClick={handleLogin}>Log in</button>
+              <button className="btn btn-secondary" onClick={() => navigate('auth/register')}>Register</button>
             </div>
-           )}
-
-          </div>
-    
-</header>
-</>
+            )}
+        </div>
+      </header>
+    </>
   )
 }
 

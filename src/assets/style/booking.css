@@ -19,9 +19,13 @@
 }
 
 .hero-booking {
+  width: 100%;
   height: 400px;
   margin: 0;
+  background-image: url("/images/hero.jpg"); 
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .header-booking {
@@ -96,7 +100,6 @@ padding: 1rem;
 /* BOOKING CONFIMATION */
 
 .summary-card {
-  
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -109,15 +112,16 @@ padding: 1rem;
   h1{
     padding-bottom: 2rem;
   }
-span {
-  font-size: 25px;
-  font-weight: var(--font-medium);
- 
-}
-p{
-  color: var(--font-grey-80);
-  padding-top: 2rem;
-  font-size: 14px;
-}
+
+  span {
+    font-size: 25px;
+    font-weight: var(--font-medium);
+  
+  }
+  p{
+    color: var(--font-grey-80);
+    padding-top: 2rem;
+    font-size: 14px;
+  }
 
 }

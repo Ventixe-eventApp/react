@@ -19,7 +19,7 @@ const RegisterForm = () => {
 
     try {
 
-      const res = await fetch('https://localhost:7221/api/Auth/register', {
+      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -32,7 +32,7 @@ const RegisterForm = () => {
       const userId = result.userId;  
       const email = formData.email
 
-      await fetch("https://localhost:7154/api/Verification/send", {
+      await fetch("https://verificationprovider-service-ventixe-fpgxf9ddg8e7g5hp.swedencentral-01.azurewebsites.net/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })
@@ -62,7 +62,6 @@ const RegisterForm = () => {
       return
     }
 
-
   }
   return (
     <form className='auth-form' onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -80,7 +79,9 @@ const RegisterForm = () => {
       <div className='form-group'>
         <label htmlFor="register-password">Password</label>
         <input id='register-password' type="password" placeholder="Enter a password"
-          {...register('password', { required: 'Password is required' })} className={errors.password ? 'input-error' : ''} />
+          {...register('password', { required: 'Password is required', pattern: {
+      value: /^(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/,
+      message: 'Password must be at least 8 characters and include a special character'} })} className={errors.password ? 'input-error' : ''} />
         {errors.password && <p className="validation-error"><i className="bi bi-exclamation-octagon"></i>{errors.password.message}</p>}
       </div>
       <div className='form-group'>
