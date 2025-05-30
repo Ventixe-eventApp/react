@@ -216,9 +216,12 @@ a {
     background-color: var(--background-side-nav);
     border-radius: 1rem;
     padding: 1.5rem 2rem;
-
     display: flex;
     flex-direction: column;
+     @media (width >= 768px) {
+        display: flex;
+       
+    }
 }
 
 
@@ -236,33 +239,24 @@ a {
     padding: 0.5rem 0;
     align-items: center;  
 
-    @media (width >= 768px) {
-
    
-    }
-
-@media (width >= 1400px) {
-
- 
-}
 }
 
 .nav-link i {
-    display: none;
+    display: flex;
     font-size: 22px;
     font-weight: var(--font-semi-bold);
 
-@media (width >= 768px) {
-    display: block;
-
-    }
 
 }
 
 
 .nav-link span {
-    display: none;
-
+     @media (width >= 768px) {
+       
+       display: none;
+    }
+    
 @media (width >= 1400px) {
     display: block;
  
@@ -352,8 +346,6 @@ header{
 .btn-logout:focus{
     background-color: var(--background-btn-secondary-hover);
 }
-
-
 
 
 .logged-in{

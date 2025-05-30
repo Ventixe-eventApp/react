@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { EventContext } from '../contexts/EventContext';
-import ConfirmHero from '../images/hero-confirmation.jpg'
+
 
 const BookingConfim = () => {
     const {selectedEvent, fetchEventsById} = useContext(EventContext)
@@ -39,6 +39,9 @@ useEffect(()=> {
                 minute: '2-digit',
                 hour12: true
               })}</span>
+               <Link to= "/">
+           <button className='btn btn-primary'>Back to homepage</button>
+          </Link> 
               <p>Booking number: {bookingId}</p>
              </div>
 

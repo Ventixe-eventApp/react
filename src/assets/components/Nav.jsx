@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../icons/ventixe-logo.svg'
+
 import { NavLink } from 'react-router-dom'
 
 const SideNav = () => {
@@ -7,7 +7,7 @@ const SideNav = () => {
     <>
     <section className='nav'>
       <div className='logo'>
-      <img className='logo-img' src={Logo} alt="Logo Ventixe" />
+      <img className='logo-img' src="/icons/ventixe-logo.svg" alt="Logo Ventixe" />
       <span className='logo-text'>Ventixe</span>
     </div>
 

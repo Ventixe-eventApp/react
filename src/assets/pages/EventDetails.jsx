@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import {  useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import { EventContext } from '../contexts/EventContext';
-import SeatMap from '../images/seat-map.svg';
+
 import PackageItem from '../components/PackageItem';
 
 const EventDetails = () => {
@@ -69,8 +69,8 @@ const EventDetails = () => {
         <div className='package-card'>
         <div className='seat-header'>
           <h3>Seat Plan</h3></div>
-          <div className='seat-map'>
-          <img src={SeatMap} alt="Map over seat plan" />
+          <div className='package-image'>
+          {selectedEvent.seatmapImagePath && (<img src={selectedEvent.seatmapImagePath} alt={selectedEvent.eventName} className="package-image" /> )}
         </div>
 
         <div className='packages'>

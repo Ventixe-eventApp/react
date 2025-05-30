@@ -2,7 +2,6 @@
 import { Route, Routes } from 'react-router-dom'
 
 import './App.css'
-
 import Events from './assets/pages/Events'
 import Home from './assets/pages/Home'
 import EventProvider from './assets/contexts/EventContext'

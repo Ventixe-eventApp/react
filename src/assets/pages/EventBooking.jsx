@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Hero from '../images/hero-booking.jpg'
-import SeatMap from '../images/seat-map.svg';
+
 import PackageItem from '../components/PackageItem';
 
 
@@ -45,9 +45,7 @@ const EventBooking = () => {
     
       const res = await fetch('https://booking-service-ventixe-ana6b3azaketebav.swedencentral-01.azurewebsites.net/api/Booking', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: {'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       })
 
@@ -108,8 +106,9 @@ const EventBooking = () => {
           {selectedEvent.packages && selectedEvent.packages.length > 0 && (
             <div className='package-card-booking'>
               <div className='package-list-booking'>
-                <div className='package-image'>
-                  <img src={SeatMap} alt="Map over seat plan" />
+                <div className='package-image-booking'>
+                  {selectedEvent.seatmapImagePath && (<img src={selectedEvent.seatmapImagePath} alt={selectedEvent.eventName} className="package-image-booking" /> )}
+                 
                 </div>
                 <ul className='package-list-booking'>
                   {selectedEvent.packages.map((pkg) => (
@@ -121,18 +120,15 @@ const EventBooking = () => {
           )}
 
           <form className='booking-form' onSubmit={handleSubmit(onSubmit)} noValidate>
-            <span className='form-text'>Please select the number of tickets you'd like to book (maximum 10 per person).
-              If you're already a member, <Link to="/auth/login">log in here</Link> to access your account and enjoy a faster booking process.
+            <span className='form-text'>Please fill in your contact information and select the number of tickets you'd like to book (maximum 10 per person).
+              If you're already a member, <Link to="#">log in here</Link> to access your account and enjoy a faster booking process.
               Not a member? Simply fill out the contact form below to complete your reservation.
             </span>
             <div className="form-group">
               <label htmlFor="packageId">Select Package</label>
-              <select key={selectedEvent.eventId}
-                id="packageId"
-                {...register('packageId', {
-
-                })}
-                className={errors.packageId ? 'input-error' : ''}>
+              <select key={selectedEvent.eventId} id="packageId" {...register('packageId', { required: 'Ticket type name is required'})}
+                 className={errors.packageId ? 'input-error' : ''}>
+               
                 <option value="">Choose a package</option>
                 {selectedEvent.packages?.map(pkg => (
                   <option key={pkg.id} value={pkg.id}>

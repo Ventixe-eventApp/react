@@ -72,16 +72,31 @@ cursor: pointer;
 
 /* EVENT DETAILS */
 
+
+
 .details-container {
+
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+
+
+@media (width >=1400px) {
+
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr auto;
+  
+}
+
 }
 
 .details-card {
   display: flex;
   flex-direction: column;
-  max-width: 750px;
+  
   gap: 0.8rem;
   background-color: var(--background-card);
   padding: 0 0 1rem 0;
@@ -169,7 +184,7 @@ cursor: pointer;
    }
 
 .package-card {
-
+  background-color: var(--background-card);
   padding: 1rem;
   border-radius: 12px;
 }
@@ -227,6 +242,21 @@ cursor: pointer;
   font-size: 14px;
   font-weight: var(--font-medium);
   width: 100%;
+
+}
+
+.package-image{
+  width: 500px;
+  height: 400px;
+  background-color: var(--event-card-image-background);
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+.package-image-booking {
+  background-color: var(--event-card-image-background);
+  object-fit: cover;
+  border-radius: 12px;
 
 }
 

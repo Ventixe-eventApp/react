@@ -22,7 +22,7 @@ const Header = () => {
  
   const handleLogout = async () => {
    try {
-    const res = await fetch('https://localhost:7221/api/Auth/logout', {
+    const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/api/Auth/logout', {
         method:'POST'
       })
 
@@ -53,7 +53,6 @@ const Header = () => {
             <button title='Log-out' className="btn btn-logout" onClick={handleLogout}><i className="bi bi-box-arrow-right"></i></button>
             <span className="user-header">{user.firstName} {user.lastName}</span>
           </div>) : 
-        
         
           (<div className='not-logged-in'>
           <button className="btn btn-secondary" onClick={handleLogin}>Log in</button>
