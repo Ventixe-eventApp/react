@@ -19,7 +19,7 @@ const RegisterForm = () => {
 
     try {
 
-      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/register', {
+      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -32,7 +32,7 @@ const RegisterForm = () => {
       const userId = result.userId;  
       const email = formData.email
 
-      await fetch("https://verificationprovider-service-ventixe-fpgxf9ddg8e7g5hp.swedencentral-01.azurewebsites.net/send", {
+      await fetch("https://verificationprovider-service-ventixe-fpgxf9ddg8e7g5hp.swedencentral-01.azurewebsites.net/api/verification/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })

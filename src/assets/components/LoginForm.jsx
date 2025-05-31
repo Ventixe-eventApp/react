@@ -17,7 +17,7 @@ const LoginForm = () => {
 
     try {
 
-      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/login', {
+      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/api/auth/login', {
         method:'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

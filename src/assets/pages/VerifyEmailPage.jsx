@@ -12,7 +12,7 @@ const VerifyEmailPage = () => {
   const onSubmit = async (data) => {
         
     try {
-      const res = await fetch('https://verificationprovider-service-ventixe-fpgxf9ddg8e7g5hp.swedencentral-01.azurewebsites.net/verify', {
+      const res = await fetch('https://verificationprovider-service-ventixe-fpgxf9ddg8e7g5hp.swedencentral-01.azurewebsites.net/api/verification/verify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, verificationCode: data.code })

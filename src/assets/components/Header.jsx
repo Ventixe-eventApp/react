@@ -24,7 +24,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/logout', {
+      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/api/auth/logout', {
         method: 'POST'
       })
 
