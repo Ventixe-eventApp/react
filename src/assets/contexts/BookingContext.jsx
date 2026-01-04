@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect} from "react";
+import apiConfig from "../../config/apiConfig";
 
 export const BookingContext = createContext()
 
@@ -10,7 +11,7 @@ const BookingProvider = ({children}) => {
     const fetchBookings =  async () => {
     try {
          
-        const res = await fetch('https://booking-service-ventixe-ana6b3azaketebav.swedencentral-01.azurewebsites.net/api/Booking')
+        const res = await fetch(`${apiConfig.booking}/api/Booking`)
 
         if(res.ok) {
         const data = await res.json()
@@ -24,7 +25,7 @@ const BookingProvider = ({children}) => {
      const fetchBookingsById = async (id) => {
 
         try {
-            const res = await fetch(`https://booking-service-ventixe-ana6b3azaketebav.swedencentral-01.azurewebsites.net/api/Booking/${id}`)
+            const res = await fetch(`${apiConfig.booking}/api/Booking/${id}`)
 
             if(res.ok) {
             const data = await res.json()

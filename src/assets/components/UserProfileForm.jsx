@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useLocation, useNavigate } from 'react-router-dom'
+import apiConfig from '../../config/apiConfig';
 
 const UserProfileForm = () => {
     const { register, handleSubmit, formState: { errors }, reset, setError, clearErrors } = useForm()
@@ -26,7 +27,7 @@ const UserProfileForm = () => {
 
     try {
 
-      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/api/auth/createprofile', {
+      const res = await fetch(`${apiConfig.event}/api/auth/createprofile`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
