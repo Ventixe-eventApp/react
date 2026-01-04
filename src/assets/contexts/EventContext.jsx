@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect} from "react";
+import apiConfig from "../../config/apiConfig";
 
 export const EventContext = createContext()
 
@@ -10,7 +11,7 @@ const EventProvider = ({children}) => {
     const fetchEvents =  async () => {
     try {
          
-        const res = await fetch('https://event-service-ventixe-gqh4fgh4bng2fte9.swedencentral-01.azurewebsites.net/api/Event')
+        const res = await fetch(`${apiConfig.event}/api/Event`)
 
         if(res.ok) {
         const data = await res.json()
@@ -24,7 +25,7 @@ const EventProvider = ({children}) => {
      const fetchEventsById = async (id) => {
 
         try {
-            const res = await fetch(`https://event-service-ventixe-gqh4fgh4bng2fte9.swedencentral-01.azurewebsites.net/api/Event/${id}`)
+            const res = await fetch(`${apiConfig.event}/api/Event/${id}`)
 
             if(res.ok) {
             const data = await res.json()

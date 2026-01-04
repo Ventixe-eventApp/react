@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { getTitleFromPath } from '../../utils/navigationPaths';
+import apiConfig from '../../config/apiConfig';
 
 const Header = () => {
   const { pathname } = useLocation()
@@ -24,7 +25,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch('https://auth-service-ventixe-g6fhgseaheajh0e9.swedencentral-01.azurewebsites.net/api/auth/logout', {
+      const res = await fetch(`${apiConfig.auth}/api/auth/logout`, {
         method: 'POST'
       })
 

@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import PackageItem from '../components/PackageItem';
+import apiConfig from '../../config/apiConfig';
 
 
 const EventBooking = () => {
@@ -40,8 +41,8 @@ const EventBooking = () => {
     };
 
     try {
-    
-      const res = await fetch('https://booking-service-ventixe-ana6b3azaketebav.swedencentral-01.azurewebsites.net/api/Booking', {
+
+      const res = await fetch(`${apiConfig.booking}/api/Booking`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
